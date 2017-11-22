@@ -19,12 +19,7 @@ func sliceParser(rd *proto.Reader, n int64) (interface{}, error) {
 		} else if err != nil {
 			return nil, err
 		} else {
-			switch vv := v.(type) {
-			case []byte:
-				vals = append(vals, string(vv))
-			default:
-				vals = append(vals, v)
-			}
+			vals = append(vals, v)
 		}
 	}
 	return vals, nil
